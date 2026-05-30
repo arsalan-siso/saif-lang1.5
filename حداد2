@@ -1,0 +1,102 @@
+#!/bin/bash
+# ═══════════════════════════════════════════════
+# ⚔️  حداد - مترجم لغة سيف
+# ═══════════════════════════════════════════════
+
+H="$(cd "$(dirname "$0")" && pwd)"
+TCC="$H/tcc"
+TCC_INC="$H/tcc-include"
+
+# ANSI colors (ASCII names only bash)
+RED='\033[31m'
+GREEN='\033[32m'
+YELLOW='\033[33m'
+NC='\033[0m'
+
+help() {
+    echo "⚔️  سيف - مترجم اللغة العربية المنخفضة المستوى"
+    echo ""
+    echo "الاستعمال: $(basename $0) [خيارات] ملف.سيف"
+    echo ""
+    echo "الخيارات:"
+    echo "  -o <ملف>     اسم ملف الإخراج"
+    echo "  -r           تشغيل البرنامج بعد الترجمة"
+    echo "  -h           هذه المساعدة"
+    exit 0
+}
+
+# Parse options
+OUT=""
+RUN=0
+ARGS=()
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -o) OUT="$2"; shift 2 ;;
+        -r) RUN=1; shift ;;
+        -h) help ;;
+        *) ARGS+=("$1"); shift ;;
+    esac
+done
+
+set -- "${ARGS[@]}"
+if [ $# -lt 1 ]; then
+    echo -e "${RED}خطأ: لم تحدد ملف سيف${NC}"
+    echo "استعمل $(basename $0) -h للمساعدة"
+    exit 1
+fi
+
+SRC="$1"
+SNAME=$(basename "$SRC" .سيف)
+SDIR=$(dirname "$SRC")
+
+if [ ! -f "$SRC" ]; then
+    echo -e "${RED}خطأ: الملف '$SRC' غير موجود${NC}"
+    exit 1
+fi
+
+if [ -z "$OUT" ]; then
+    OUT="$SNAME"
+fi
+
+# Create ASCII-only build directory
+BD="/tmp/saif_build_$$"
+mkdir -p "$BD"
+
+# Link all library files
+ln -sf "$H"/*.ع "$BD/" 2>/dev/null
+
+# Copy source file
+cp "$SRC" "$BD/$SNAME.سيف"
+
+# SDL2 libraries
+LIBS="-lSDL2 -lm"
+# Try to detect if SDL2_mixer and SDL2_ttf are needed
+grep -q "صوت\|mus\|Mix_" "$SRC" 2>/dev/null && LIBS="$LIBS -lSDL2_mixer"
+grep -q "خط\|ttf\|TTF_" "$SRC" 2>/dev/null && LIBS="$LIBS -lSDL2_ttf"
+
+echo -e "${YELLOW}⚔️  ترجمة $SRC ...${NC}"
+
+# Convert relative output path to absolute
+ORIG_DIR="$PWD"
+if [ "${OUT:0:1}" != "/" ]; then
+    OUT="$ORIG_DIR/$OUT"
+fi
+
+cd "$BD"
+"$TCC" -B "$H" -I "$TCC_INC" \
+    "$SNAME.سيف" $LIBS -o "$OUT" 2>&1
+
+if [ $? -ne 0 ]; then
+    echo -e "${RED}❌ فشلت الترجمة${NC}"
+    rm -rf "$BD"
+    exit 1
+fi
+
+echo -e "${GREEN}✅ تمت الترجمة بنجاح ← $OUT${NC}"
+
+rm -rf "$BD"
+
+if [ $RUN -eq 1 ]; then
+    echo -e "${YELLOW}▶️  تشغيل $OUT ...${NC}"
+    "$OUT"
+fi

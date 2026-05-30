@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════
+   ⚔️  سيف - مكتبة النصوص
+   جميع دوال التعامل مع السلاسل النصية
+   ═══════════════════════════════════════════════ */
+
+#ifndef نصوص_مكتبة
+#define نصوص_مكتبة
+
+#include <string.h>
+#include <stdio.h>
+
+#define طول_نص     strlen
+#define انسخ_نص    strcpy
+#define انسخ_نص_امن strncpy
+#define قارن_نص    strcmp
+#define قارن_نص_امن strncmp
+#define ادمج_نص    strcat
+#define ادمج_نص_امن strncat
+#define بحث_نص     strstr
+#define جزئ_نص     strtok
+#define نسخ_نص     strdup
+#define اول_نص     strchr
+#define آخر_نص     strrchr
+#define اقلب_نص    strrev
+#define حول_عدد    atoi
+#define حول_كسري   atof
+#define حول_طويل   atol
+#define عدد_الى_نص sprintf
+
+#endif /* نصوص_مكتبة */

@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════════════
+   ⚔️  سيف - مكتبة الملفات
+   جميع عمليات الإدخال والإخراج للملفات
+   ═══════════════════════════════════════════════ */
+
+#ifndef ملفات_مكتبة
+#define ملفات_مكتبة
+
+#include <stdio.h>
+
+#define ملف        FILE
+#define افتتح       fopen
+#define اغلق        fclose
+#define اقرأ_سطر    fgets
+#define اكتب_في     fprintf
+#define اكتب_الى    fprintf
+#define اكتب_منسق   sprintf
+#define اكتب_بملف   fputs
+#define اقرأ_من     fscanf
+#define اقرأ_بملف   fgets
+#define اكتب_حرف_بملف fputc
+#define اقرأ_حرف_بملف fgetc
+#define بداية_ملف   rewind
+#define نهاية_ملف   feof
+#define خطأ_ملف     ferror
+#define عدد_الملف   ftell
+#define اذهب_في_ملف fseek
+#define احفظ_بملف   fwrite
+#define اقرأ_من_ملف fread
+#define نظف_ملف     fflush
+
+/* أنماط فتح الملف */
+#define للقراءة    "r"
+#define للكتابة    "w"
+#define للإضافة   "a"
+#define للقراءة_كتابة "r+"
+#define لكتابة_قراءة "w+"
+#define لاضافة_قراءة "a+"
+#define ثنائي_قراءة "rb"
+#define ثنائي_كتابة "wb"
+
+#endif /* ملفات_مكتبة */

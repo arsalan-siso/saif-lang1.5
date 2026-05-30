@@ -1,0 +1,38 @@
+/* ═══════════════════════════════════════════════
+   ⚔️  سيف - مكتبة النظام
+   الوقت، المجلدات، أوامر النظام
+   ═══════════════════════════════════════════════ */
+
+#ifndef نظام_مكتبة
+#define نظام_مكتبة
+
+#include <time.h>
+#include <stdlib.h>
+#include <dirent.h>
+
+/* الوقت */
+#define وقت       time
+#define وقت_محلي  localtime
+#define وقت_نظام  time_t
+#define هيكل_وقت  struct tm
+#define اكتب_وقت  ctime
+#define فارق_وقت  difftime
+
+/* المجلدات */
+#define مجلد      DIR
+#define افتتح_مجلد opendir
+#define اقرأ_مجلد  readdir
+#define اغلق_مجلد  closedir
+#define مدخل_مجلد  struct dirent
+#define اسم_المدخل d_name
+
+/* النظام */
+#define اخرج      exit
+#define نفذ_امر   system
+#define بيئة      getenv
+
+/* التجزئة */
+#define أنساق     qsort
+#define بحث_ثنائي bsearch
+
+#endif /* نظام_مكتبة */

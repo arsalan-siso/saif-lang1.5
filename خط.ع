@@ -1,0 +1,31 @@
+/* ═══════════════════════════════════════════════
+   ⚔️  سيف - مكتبة الخطوط (SDL2_ttf)
+   ═══════════════════════════════════════════════ */
+
+#ifndef خط_مكتبة
+#define خط_مكتبة
+
+#include <SDL2/SDL_ttf.h>
+
+#define خط         TTF_Font
+#define ابدأ_الخط  TTF_Init
+#define اختم_الخط  TTF_Quit
+#define افتتح_خط   TTF_OpenFont
+#define افتتح_خط_بحجم TTF_OpenFont
+#define اغلق_خط    TTF_CloseFont
+
+/* رسم النصوص */
+#define ارسم_نص_عربي  TTF_RenderUTF8_Solid
+#define ارسم_نص_انجليزي TTF_RenderText_Solid
+#define ارسم_نص_مظلل  TTF_RenderUTF8_Shaded
+#define ارسم_نص_مش     TTF_RenderUTF8_Blended
+
+/* نمط الخط */
+#define خط_عريض    TTF_STYLE_BOLD
+#define خط_مائل     TTF_STYLE_ITALIC
+#define خط_تحته_خط  TTF_STYLE_UNDERLINE
+#define خط_عليه_خط  TTF_STYLE_STRIKETHROUGH
+#define خط_عادي     TTF_STYLE_NORMAL
+#define ضبط_نمط_خط  TTF_SetFontStyle
+
+#endif /* خط_مكتبة */

@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════
+   ⚔️  سيف - مكتبة الرسوميات (SDL2)
+   جميع أنواع ودوال SDL2 بأسماء عربية
+   ═══════════════════════════════════════════════ */
+
+#ifndef بصمة_مكتبة
+#define بصمة_مكتبة
+
+#include <SDL2/SDL.h>
+
+/* ═══════════════════════════════════
+   الأنواع
+   ═══════════════════════════════════ */
+#define نافذة      SDL_Window
+#define راسم       SDL_Renderer
+#define حدث        SDL_Event
+#define مستطيل     SDL_Rect
+#define لون        SDL_Color
+#define سطح        SDL_Surface
+#define نسيج       SDL_Texture
+#define نقطة       SDL_Point
+
+/* ═══════════════════════════════════
+   التهيئة والإنهاء
+   ═══════════════════════════════════ */
+#define ابدأ_الرسوم()       SDL_Init(SDL_INIT_VIDEO)
+#define اختم_الرسوم()       SDL_Quit()
+#define ابدأ_الكل()         SDL_Init(SDL_INIT_EVERYTHING)
+#define ابدأ_بخصائص(خ)     SDL_Init(خ)
+
+/* ═══════════════════════════════════
+   النوافذ
+   ═══════════════════════════════════ */
+#define افتتح_نافذة(ع,ط,ا)      SDL_CreateWindow(ع, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ط, ا, SDL_WINDOW_SHOWN)
+#define افتتح_نافذة_كاملة(ع,ط,ا) SDL_CreateWindow(ع, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ط, ا, SDL_WINDOW_FULLSCREEN)
+#define اغلق_نافذة(ن)           SDL_DestroyWindow(ن)
+#define عنوان_نافذة(ن,ع)        SDL_SetWindowTitle(ن,ع)
+
+/* ═══════════════════════════════════
+   الراسم
+   ═══════════════════════════════════ */
+#define افتتح_راسم(ن)           SDL_CreateRenderer(ن, -1, SDL_RENDERER_ACCELERATED)
+#define اغلق_راسم(ر)            SDL_DestroyRenderer(ر)
+#define امسح_اللوحة(ر)          SDL_RenderClear(ر)
+#define اظهر_اللوحة(ر)          SDL_RenderPresent(ر)
+
+/* ═══════════════════════════════════
+   الألوان والرسم
+   ═══════════════════════════════════ */
+#define استعمل_لون(ر,ح,خ,ز)            SDL_SetRenderDrawColor(ر,ح,خ,ز,255)
+#define استعمل_لون_بشفافية(ر,ح,خ,ز,ش)  SDL_SetRenderDrawColor(ر,ح,خ,ز,ش)
+#define ارسم_نقطة(ر,س,ص)               SDL_RenderDrawPoint(ر,س,ص)
+#define ارسم_خط(ر,س1,ص1,س2,ص2)        SDL_RenderDrawLine(ر,س1,ص1,س2,ص2)
+#define ارسم_مستطيل_فارغ(ر,م)          SDL_RenderDrawRect(ر,م)
+#define املأ_مستطيل(ر,م)               SDL_RenderFillRect(ر,م)
+#define ارسم_دائرة(ر,س,ص,نق)           for(عدد ع=-نق;ع<=نق;ع++)for(عدد ل=-نق;ل<=نق;ل++)if(ع*ع+ل*ل<=نق*نق)SDL_RenderDrawPoint(ر,س+ع,ص+ل)
+#define انسخ_النسيج(ر,ن,م_مصدر,م_هدف)  SDL_RenderCopy(ر,ن,م_مصدر,م_هدف)
+
+/* ═══════════════════════════════════
+   الأحداث
+   ═══════════════════════════════════ */
+#define هل_حدث()                SDL_PollEvent(&حدث_عام)
+#define هل_خروج()              (حدث_عام.type == SDL_QUIT)
+#define نوع_الحدث               حدث_عام.type
+#define اضغط_مفتاح(م)           (حدث_عام.key.keysym.sym == م)
+#define حدث_مفاتيح              SDL_KEYDOWN
+#define حدث_نص                  SDL_TEXTINPUT
+#define حدث_فأرة               SDL_MOUSEBUTTONDOWN
+#define موقع_الفأرة_س           حدث_عام.button.x
+#define موقع_الفأرة_ص           حدث_عام.button.y
+#define زر_الفأرة               حدث_عام.button.button
+
+/* ═══════════════════════════════════
+   المفاتيح
+   ═══════════════════════════════════ */
+#define مفتاح_أعلى     SDLK_UP
+#define مفتاح_أسفل     SDLK_DOWN
+#define مفتاح_يسار     SDLK_LEFT
+#define مفتاح_يمين     SDLK_RIGHT
+#define مفتاح_هروب     SDLK_ESCAPE
+#define مفتاح_دخول     SDLK_RETURN
+#define مفتاح_مسافة    SDLK_SPACE
+#define مفتاح_حذف      SDLK_BACKSPACE
+#define مفتاح_تبويب    SDLK_TAB
+#define مفتاح_تحكم     SDLK_LCTRL
+#define مفتاح_بديل     SDLK_LALT
+#define مفتاح_ف1       SDLK_F1
+#define مفتاح_ف2       SDLK_F2
+#define مفتاح_ف3       SDLK_F3
+#define مفتاح_ف4       SDLK_F4
+#define مفتاح_ف5       SDLK_F5
+#define مفتاح_ف6       SDLK_F6
+#define مفتاح_ف7       SDLK_F7
+#define مفتاح_ف8       SDLK_F8
+#define مفتاح_ف9       SDLK_F9
+#define مفتاح_ف10      SDLK_F10
+#define مفتاح_ف11      SDLK_F11
+#define مفتاح_ف12      SDLK_F12
+#define مفتاح_حذف_امامي SDLK_DELETE
+#define مفتاح_صفحة_فوق  SDLK_PAGEUP
+#define مفتاح_صفحة_تحت  SDLK_PAGEDOWN
+#define مفتاح_بيت       SDLK_HOME
+#define مفتاح_نهاية     SDLK_END
+#define مفتاح_ادخال_نص  SDLK_INSERT
+
+/* ═══════════════════════════════════
+   التأخير والوقت
+   ═══════════════════════════════════ */
+#define انتظر(م)               SDL_Delay(م)
+#define وقت_الآن()             SDL_GetTicks()
+
+/* ═══════════════════════════════════
+   النصوص (الإدخال)
+   ═══════════════════════════════════ */
+#define ابدأ_ادخال_نص()       SDL_StartTextInput()
+#define اوقف_ادخال_نص()       SDL_StopTextInput()
+#define نص_مدخل               حدث_عام.text.text[0]
+
+/* ═══════════════════════════════════
+   السطوح والأنسجة
+   ═══════════════════════════════════ */
+#define حرر_سطح(س)            SDL_FreeSurface(س)
+#define حرر_نسيج(ن)            SDL_DestroyTexture(ن)
+#define حول_سطح_الى_نسيج(ر,س) SDL_CreateTextureFromSurface(ر,س)
+
+/* الحدث العام */
+حدث حدث_عام;
+
+#endif /* بصمة_مكتبة */

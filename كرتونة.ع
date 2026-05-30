@@ -1,0 +1,132 @@
+/* ═══════════════════════════════════════════════
+   ⚔️  سيف - المكتبة الأم (كرتونة)
+   دوال ومكتبات C القياسية بالعربية
+   
+   ملاحظة: الكلمات المفتاحية والأنواع في المترجم نفسه
+   (عدد, اذا, طالما, ارجع, ...) - لا حاجة لتعريفها هنا
+   ═══════════════════════════════════════════════ */
+
+#ifndef كرتونة
+#define كرتونة
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
+
+/* ═══════════════════════════════════
+   الثوابت والقيم
+   ═══════════════════════════════════ */
+#define فارغ     NULL
+#define صحيح     1
+#define خطأ      0
+#define نجاح     0
+#define فشل     -1
+
+/* ═══════════════════════════════════
+   دالة رئيسية
+   ═══════════════════════════════════ */
+#define رئيسي    main
+
+/* ═══════════════════════════════════
+   العمليات
+   ═══════════════════════════════════ */
+#define ليس      !
+#define و        &&
+#define أو       ||
+#define عنوان    &
+#define مرجع     ->
+
+/* ═══════════════════════════════════
+   الإدخال والإخراج
+   ═══════════════════════════════════ */
+#define اكتب       printf
+#define اكتب_سطر   puts
+#define اقرأ       scanf
+#define اقرأ_محرف  getchar
+
+/* ═══════════════════════════════════
+   الملفات
+   ═══════════════════════════════════ */
+#define ملف       FILE
+#define افتتح     fopen
+#define اغلق       fclose
+#define اقرأ_سطر   fgets
+#define اكتب_في    fprintf
+#define اكتب_الى   fprintf
+#define اكتب_منسق  sprintf
+#define اكتب_بملف  fputs
+#define اقرأ_من    fscanf
+#define بداية_ملف  rewind
+#define نهاية_ملف  feof
+#define خطأ_ملف    ferror
+
+/* ═══════════════════════════════════
+   الذاكرة
+   ═══════════════════════════════════ */
+#define احجز      malloc
+#define احجز_عدد  calloc
+#define وسع       realloc
+#define حرر       free
+
+/* ═══════════════════════════════════
+   النصوص
+   ═══════════════════════════════════ */
+#define طول_نص     strlen
+#define انسخ_نص    strcpy
+#define انسخ_نص_امن strncpy
+#define قارن_نص    strcmp
+#define قارن_نص_امن strncmp
+#define ادمج_نص    strcat
+#define ادمج_نص_امن strncat
+#define بحث_نص     strstr
+#define جزئ_نص     strtok
+#define نسخ_نص     strdup
+#define اول_نص     strchr
+#define آخر_نص     strrchr
+
+/* ═══════════════════════════════════
+   الرياضيات
+   ═══════════════════════════════════ */
+#define جذر       sqrt
+#define قوة       pow
+#define جيب       sin
+#define جيب_تمام  cos
+#define ظل        tan
+#define مطلق      abs
+#define مطلق_طويل labs
+#define أرضي      floor
+#define سقف       ceil
+#define مستدير    round
+#define عشوائي    rand
+#define بذرة_عشوائية srand
+#define اكبر      fmax
+#define اصغر      fmin
+#define لوغاريتم  log
+#define لوغاريتم_عشري log10
+#define أس        exp
+
+/* ═══════════════════════════════════
+   الوقت والنظام
+   ═══════════════════════════════════ */
+#define وقت       time
+#define اخرج      exit
+#define أنساق     qsort
+#define بحث_ثنائي bsearch
+
+/* ═══════════════════════════════════
+   ألوان الطرفية
+   ═══════════════════════════════════ */
+#define لون_أحمر    "\x1b[31m"
+#define لون_أخضر    "\x1b[32m"
+#define لون_أصفر    "\x1b[33m"
+#define لون_أزرق    "\x1b[34m"
+#define لون_أرجواني "\x1b[35m"
+#define لون_سماوي   "\x1b[36m"
+#define لون_أبيض    "\x1b[37m"
+#define لون_عريض    "\x1b[1m"
+#define لون_طبيعي   "\x1b[0m"
+#define مسح_الشاشة  "\x1b[2J\x1b[H"
+
+#endif /* كرتونة */
