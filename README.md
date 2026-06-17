@@ -1,5 +1,11 @@
 # ⚔️ سيف (Saif) — The Arabic Low-Level Programming Language
+## 🌐 الموقع الرسمي للغة سيف
 
+> **تم إطلاق الموقع الرسمي للغة سيف!**  
+> تعلم اللغة بالعربية من خلال 20 درساً تفاعلياً، مع مشغل أكواد حقيقي، وشرح لكل المكتبات.  
+> 
+> [![رحلة تعلم سيف تبدأ من هنا](https://img.shields.io/badge/%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9_%D8%A7%D9%84%D8%B1%D8%B3%D9%85%D9%8A-%D8%B3%D9%8A%D9%81_1.5-blue?style=for-the-badge&logo=github)](http://saif-lang.infinityfree.me/?i=1)
+> 
 > **أول لغة برمجة عربية مُجمّعة (مترجمها يفهم العربية من الداخل)**  
 > *The first compiled Arabic programming language — its compiler natively understands Arabic*
 
