@@ -7,7 +7,6 @@
 [![Made In](https://img.shields.io/badge/%D8%B5%D9%86%D8%B9_%D9%81%D9%8A-%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1-green?style=for-the-badge)](#)
 [![Platform](https://img.shields.io/badge/Platform-Linux-red?style=for-the-badge)](#)
 [![Compiler](https://img.shields.io/badge/Compiler-TCC-lightgrey?style=for-the-badge)](#)
-[![Compiler](http://saif-lang.infinityfree.me/?i=1)](#)
 ---
 
 # 🌐 اختر اللغة — Choose Language
